@@ -1,0 +1,21 @@
+.signup-container {
+    height: 97vh;
+    overflow: hidden;
+}
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.username,
+.password {
+  width: 80%;
+}
+.hero-image-section {
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-image-section > .MuiTypography-h2 {
+    color: aliceblue;
+}
