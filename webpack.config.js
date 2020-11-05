@@ -1,5 +1,9 @@
 const path = require('path');
+const webpack  = require('webpack');
+const dotenv  = require('dotenv');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+dotenv.config();
 
 module.exports = {
     mode: 'development',
@@ -35,8 +39,16 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: ['babel-loader','eslint-loader']
             },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                  'file-loader',
+                ],
+            },
         ]
     },
-    plugins: [ new HtmlWebpackPlugin({ template: "src/index.html", inject : "body" }) ],
+    plugins: [ new HtmlWebpackPlugin({ template: "src/index.html", inject : "body" }),   new webpack.DefinePlugin({
+        'process.env.BACKEND_LINK': JSON.stringify(process.env.BACKEND_LINK),
+      }), ],
     devtool: 'source-map',
 };

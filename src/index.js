@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './message.scss'
+import App from './App';
+import { Provider } from 'react-redux';
+import { SnackbarProvider } from 'notistack';
+import store from './redux/store';
 
-const Element = () => <span className="message">hello world</span>;
 ReactDOM.render(
-    <Element />,
+    <Provider store={store}>
+        <SnackbarProvider maxSnack={1}>
+           <App /> 
+        </SnackbarProvider>
+        
+    </Provider>
+    ,
     document.getElementById('root')
 );
