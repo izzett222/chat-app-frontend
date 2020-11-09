@@ -3,7 +3,7 @@ import { SIGNUP_ACTION, SIGNUP_ERROR, SIGNUP_START_LOADING, SIGNUP_STOP_LOADING 
 export const signupAction = (userName, id, token) => ({ type: SIGNUP_ACTION, userName, id, token });
 export const startLoading = () => ({ type: SIGNUP_START_LOADING});
 export const stopLoading = () => ({ type: SIGNUP_STOP_LOADING});
-const signUpErrorAction = (message) => ({ type: SIGNUP_ERROR, message})
+export const signUpErrorAction = (message) => ({ type: SIGNUP_ERROR, message})
 
 export const signUp = (user) => async dispatch => {
     try{

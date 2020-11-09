@@ -12,6 +12,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // output directory
         filename: "[name].js" // name of the generated bundle
     },
+    devServer: {
+        historyApiFallback: true,
+      },
     optimization: {
         splitChunks: {
             chunks: 'all',

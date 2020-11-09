@@ -1,17 +1,17 @@
 import React from 'react';
 import {  Grid } from '@material-ui/core';
-import Image from './sharedComponents/Image';
-import Signup from './signup/Signup';
+import Image from '../sharedComponents/Image';
+import LoginForm from './LoginForm';
 
-import './landingPage.scss';
+import '../landingPage.scss';
 
-const LandingPage = () => {
+const Login = () => {
         return (
             <Grid container className="signup-container">
                 <Image />
-               <Signup />
+                <LoginForm />
         </Grid>
         )
 }
 
-export default LandingPage;
+export default Login;
