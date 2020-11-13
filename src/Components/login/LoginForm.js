@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withSnackbar } from 'notistack';
 import { Box, Button, Grid, TextField, Typography, CircularProgress } from '@material-ui/core';
 import { login } from '../../redux/actions/login';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../landingPage.scss';
 
 class Login extends React.Component {
@@ -47,13 +47,15 @@ class Login extends React.Component {
                 await this.props.dispatch(login({ userName, password }))
                 if(this.props.user.loginError) {
                     this.errorPopUp(this.props.user.loginError)
+                } else {
+                    this.props.history.push('/joinChat');
                 }
             } else if(userName.trim().length < 1 && password.trim().length < 1) {
                 this.setState({
                     passwordInput: true,
                     userNameInput: true
                 })
-            }         
+            }      
     }
 
     render() {
@@ -109,4 +111,4 @@ function mapStateToProps(state) {
     return { user }
   }
   
-export default connect(mapStateToProps)(withSnackbar(Login));
+export default connect(mapStateToProps)(withSnackbar(withRouter(Login)));

@@ -6,13 +6,23 @@ import {
   import LandingPage from './LandingPage';
   import Login from './login/Login';
   import NotFound from './NotFound';
+  import JoinChat from './chat/JoinChat';
 
   const Routes = () => {
       return (
       <Switch>
-        <Route path="/" exact component={LandingPage}/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="*" exact component={NotFound} />
+        <Route path="/" exact>
+          <LandingPage />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/joinChat" exact>
+          <JoinChat />
+        </Route>
+        <Route path="*" exact>
+          <NotFound />
+        </Route>
       </Switch>)
   }
 

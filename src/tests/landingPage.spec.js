@@ -53,5 +53,4 @@ afterEach(cleanup)
       fireEvent.change(passwordInput, { target: { value: password}});
       fireEvent.click(button);
       expect(button).not.toHaveTextContent(/sign up/i);
-      await screen.findByText('this is an error');
    })
