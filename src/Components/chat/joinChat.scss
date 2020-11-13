@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: hsla(210, 11%, 85%, 1);
+}
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+body {
+    background-color: hsla(210, 11%, 96%, 1);
+}

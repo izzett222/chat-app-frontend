@@ -1,4 +1,8 @@
-import { SIGNUP_ACTION, SIGNUP_ERROR, SIGNUP_START_LOADING, SIGNUP_STOP_LOADING, LOGIN_ACTION, LOGIN_ERROR, LOGIN_START_LOADING, LOGIN_STOP_LOADING } from '../actionTypes';
+import { 
+    SIGNUP_ACTION, SIGNUP_ERROR, SIGNUP_START_LOADING, SIGNUP_STOP_LOADING,
+    LOGIN_ACTION, LOGIN_ERROR, LOGIN_START_LOADING, LOGIN_STOP_LOADING,
+    PROFILE_ACTION, PROFILE_ERROR, PROFILE_START_LOADING, PROFILE_STOP_LOADING
+} from '../actionTypes';
 
 const initialStale = {
     userName: '',
@@ -7,7 +11,9 @@ const initialStale = {
     error: '',
     loginError: '',
     loading: false,
-    loginLoading: false
+    loginLoading: false,
+    profileError: '',
+    profileLoading: false,
 
 }
 const userReducer = (state = initialStale, action) => {
@@ -26,8 +32,16 @@ const userReducer = (state = initialStale, action) => {
             return { ...state, loginError: action.message}
         case LOGIN_START_LOADING:
             return { ...state, loginLoading: true }
-            case LOGIN_STOP_LOADING:
-                return { ...state, loginLoading: false }
+        case LOGIN_STOP_LOADING:
+            return { ...state, loginLoading: false }
+        case PROFILE_ACTION:
+            return { ...state, error: '', userName: action.userName, id: action.id }
+        case PROFILE_ERROR:
+            return { ...state, profileError: action.message}
+        case PROFILE_START_LOADING:
+            return { ...state, profileLoading: true }
+        case PROFILE_STOP_LOADING:
+            return { ...state, profileLoading: false }
         default:
             return state
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
   } from "react-router-dom"; 
 import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
@@ -11,11 +11,11 @@ import './message.scss'
 const App = () => {
     return (
     <Provider store={store}>
-        <Router>
+        <BrowserRouter>
             <SnackbarProvider maxSnack={1}>
                 <Routes /> 
             </SnackbarProvider>
-        </Router>
+        </BrowserRouter>
     </Provider>
     )
 };

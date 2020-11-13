@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withSnackbar } from 'notistack';
 import { Box, Button, Grid, TextField, Typography, CircularProgress } from '@material-ui/core';
 import { signUp } from '../../redux/actions/signup';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../landingPage.scss';
 
 class Signup extends React.Component {
@@ -48,6 +48,9 @@ class Signup extends React.Component {
                             horizontal: 'right',
                         },
                     });
+                } else {
+                    console.log(this.context);
+                    this.props.history.push("/joinChat");
                 }
             }           
     }
@@ -105,4 +108,4 @@ function mapStateToProps(state) {
     return { user }
   }
   
-export default connect(mapStateToProps)(withSnackbar(Signup));
+export default connect(mapStateToProps)(withSnackbar(withRouter(Signup)));
